@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Orderdetails from './components/AddFood/Orderdetails';
+import OrderForm from './components/Orderdetails/OrderForm';
+import OrderView from './components/OrderView/OrderView';
 
 const availableFoods = [
   {name: 'cheeseburger', price: 80, label: 'cheeseburger'},
@@ -27,21 +29,40 @@ class App extends Component {
 
   addFood = (name) => {
       let food = {...this.state.foods[name]};
-      let price = availableFoods.find(item => item.name === name). price;
-      food.count =+1;
+      let price = availableFoods.find(item => item.name === name).price;
+      food.count += 1;
       food.total = food.count * price;
 
       let foods = {...this.state.foods};
 
-      foods[name] =food;
+      foods[name] = food;
 
-      let state = {...this.state};
-      this.getCost(state);
-      this.setState(state);
+      let newState = {...this.state};
+      newState.foods = foods;
+      this.setState(newState);
+      this.getCost(newState)
+  };
+
+  removeFood = (name) => {
+      let food = {...this.state.foods[name]};
+      let price = availableFoods.find(item => item.name === name).price;
+      if (food.count > 0) {
+      food.count -= 1;
+      }
+      food.total = food.count * price;
+
+      let foods = {...this.state.foods};
+
+      foods[name] = food;
+
+      let newState = {...this.state};
+      newState.foods = foods;
+      this.setState(newState);
+      this.getCost(newState)
   };
 
   getCost = () => {
-      return 20+this.state.foods.cheeseburger.total + this.state.foods.coffee.total + this.state.foods.cola.total + this.state.foods.fries.total + this.state.foods.hamburger.total + this.state.foods.tea.total;
+      return this.state.foods.cheeseburger.total+this.state.foods.coffee.total + this.state.foods.cola.total + this.state.foods.fries.total + this.state.foods.hamburger.total + this.state.foods.tea.total;
   };
 
 
@@ -50,6 +71,8 @@ class App extends Component {
       <div className="container">
           <Orderdetails foods={this.state.foods}/>
             <p>Price : {this.getCost()} Rub</p>
+          <OrderForm add = {this.addFood}/>
+          <OrderView/>
       </div>
     );
   }

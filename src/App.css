@@ -1,61 +1,69 @@
 .container {
-  width: 940px;
-}
-
-.cheeseburger {
-  width: 300px;
-  height: 10%;
-  margin: 2% auto;
-  border-radius: 25px;
-  color: aquamarine;
-}
-
-.coffee {
-  width: 300px;
-  height: 10%;
-  margin: 2% auto;
-  border-radius: 25px;
-  color: aquamarine;
-}
-
-.cola {
-  width: 300px;
-  height: 10%;
-  margin: 2% auto;
-  border-radius: 25px;
-  color: aquamarine;
-}
-
-.fries {
-  width: 300px;
-  height: 10%;
-  margin: 2% auto;
-  border-radius: 25px;
-  color: aquamarine;
-}
-
-.hamburger {
-  width: 300px;
-  height: 10%;
-  margin: 2% auto;
-  border-radius: 25px;
-  color: aquamarine;
-}
-
-.tea {
-  width: 300px;
-  height: 10%;
-  margin: 2% auto;
-  border-radius: 25px;
-  color: aquamarine;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
 }
 
 .Orderdetails {
-  width: 100%;
-  margin: auto;
+  width: 400px;
+  margin: 10px;
   height: 250px;
   overflow: auto;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
   font-size: 1.2rem;
+  float: left;
+}
+p {
+  width: 110px;
+  margin-right: 0;
+}
+h5{
+  width: 110px;
+  margin-right: 0;
+}
+.Orderform {
+  width: 400px;
+  background-color:rgba(187,0,0,.8);
+  z-index: 100;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  box-shadow: 0 2px 1px #ccc;
+  margin: auto;
+  padding: 10px 0;
+  margin-bottom: 0px;
+  float: right;
+}
+
+.FoodControl {
+  width: 250px;
+  margin: 20px;
+  height: 200px;
+  overflow: auto;
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.FoodName {
+  font-weight: bold;
+  width: 80px;
+  color: black;
+}
+
+.FoodButton {
+  display: block;
+  font-family: inherit;
+  padding: 2px;
+  margin: 0 5px;
+  width: 60px;
+  border: 1px solid #AA6817;
+  cursor: pointer;
+  outline: none;
+  background-color: #007bff;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s
 }
