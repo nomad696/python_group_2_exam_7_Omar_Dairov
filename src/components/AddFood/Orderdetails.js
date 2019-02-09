@@ -1,6 +1,6 @@
 import React from 'react';
-import FoodControl from "../Orderdetails/FoodControl/FoodControl";
-import OrderForm from "../Orderdetails/OrderForm";
+// import OrderForm from "../Orderdetails/OrderForm";
+import OrderView from '../OrderView/OrderView'
 
 function Orderdetails(props) {
     const foodKeys = Object.keys(props.foods);
@@ -9,7 +9,8 @@ function Orderdetails(props) {
     return <div className='Orderdetails'>
         <div className='OrderList'>
                 {foodKeys.map((cheeseburger)=>{
-                    return (<OrderForm food={props.foods[cheeseburger]} key={cheeseburger}/>)})}
+                    console.log(cheeseburger);
+                    return (<OrderView food={props.foods[cheeseburger]} key={cheeseburger}/>)})}
             </div>
         </div>
 }

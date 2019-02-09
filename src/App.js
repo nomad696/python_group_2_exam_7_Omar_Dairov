@@ -72,7 +72,6 @@ class App extends Component {
           <Orderdetails foods={this.state.foods}/>
             <p>Price : {this.getCost()} Rub</p>
           <OrderForm add = {this.addFood}/>
-          <OrderView/>
       </div>
     );
   }
